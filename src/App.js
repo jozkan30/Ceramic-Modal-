@@ -35,8 +35,7 @@ render(){
     {this.state.items.map((item)=>{
       const {id} = item;
       return(
-        <div className='dscrpt' key={id}>
-          
+        <div className='main' key={id}>
           <Card items={item} />  
           <Pics items={item} />
 
