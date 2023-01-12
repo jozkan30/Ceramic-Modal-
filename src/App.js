@@ -51,7 +51,11 @@ render(){
            onClick={this.onClickButton}
           />
           <p onClick={this.onClickButton}>Click Me</p>
-                <Modal open={this.state.openModal} onClose={this.onCloseModal}>
+                <Modal 
+                open={this.state.openModal} 
+                onClose={this.onCloseModal}
+                
+                >
                 <Card items={item} />
                 </Modal>   
         </div>
