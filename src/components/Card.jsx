@@ -1,4 +1,5 @@
 import { Component } from "react";
+import CardStyle from './CardStyle.css'
 
 
 
@@ -19,17 +20,3 @@ class Card extends Component{
 
 
 export default Card
-
-
- /* {items.map((item)=>{
-                const{ description, date, medium } = item;
-                return(
-                    <div>
-                     <p> {`${description}`} </p>   
-                     <p> {date} </p>   
-                     <p> {medium} </p>   
-                    </div>
-                )
-                
-                })}
-        */

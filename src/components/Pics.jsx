@@ -1,6 +1,5 @@
 import { Component } from "react";
-
-
+import PicsStyle from './PicsStyle.css';
 
 class Pics extends Component{
     render(){
@@ -8,16 +7,16 @@ class Pics extends Component{
 
 
         return(
-                <div className="stuff" >
-                  {items.map((item) => {
-                    const { id, title} = item;
-                    return(
-                      <div className='dscrpt' key={id}>
-                        <p className='img-info'>{title}</p>
-                </div>
-                );
-                  })}
-                </div>
+              <>
+               <img 
+                    src={`${items.image}`} 
+                    className='card-imgs'
+                    alt={`${items.id}`}
+                    
+                    />
+                  
+              </>
+
                 );
               
               }

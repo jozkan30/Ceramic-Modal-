@@ -33,22 +33,15 @@ render(){
   return(
   <div className='frames-container' >
     {this.state.items.map((item)=>{
-      const {id, title, description, date, medium} = item;
+      const {id} = item;
       return(
         <div className='dscrpt' key={id}>
-          <p className='img-info'>{title}</p>
-          <p className='img-info'>{description}</p>
-          <p className='img-info'>{date}</p>
-          <p className='img-info'>{medium}</p>
-          <img 
-          src={`${item.image}`} 
-          className='card-imgs'
-          alt={`${item.id}`}/>
           
-          <p>
-            <Card items={item} />
-          </p>
-          </div>
+          <Card items={item} />  
+          <Pics items={item} />
+
+        </div>
+          
           
       )
 

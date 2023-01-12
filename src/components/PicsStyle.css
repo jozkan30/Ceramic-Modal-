@@ -1,0 +1,21 @@
+.frames-container {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
+
+}
+
+.card-imgs{
+  height: auto;
+  width: auto;
+  cursor: pointer;
+  padding: 5px;
+  object-fit: contain;
+  border-radius: 30px;
+}
+
+.card-imgs:hover{
+  box-shadow: 0px 0px 10px 10px rgba(128,0,32,0.67);
+}
