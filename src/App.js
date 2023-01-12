@@ -45,9 +45,9 @@ render(){
           className='card-imgs'
           alt={`${item.id}`}/>
           
-          <div>
-            
-          </div>
+          <p>
+            <Card items={item} />
+          </p>
           </div>
           
       )
