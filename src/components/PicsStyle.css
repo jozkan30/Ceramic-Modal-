@@ -1,5 +1,6 @@
 .frames-container {
     display: flex;
+    text-align: center;
     align-items: flex-start;
     flex-wrap: wrap;
     justify-content: space-evenly;

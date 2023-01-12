@@ -2,7 +2,8 @@ import { Component } from 'react';
 import './App.css';
 import Card from './components/Card';
 import Pics from './components/Pics';
-
+import { Modal } from 'react-responsive-modal';
+import 'react-responsive-modal/styles.css';
 
 class App extends Component {
 
@@ -12,8 +13,7 @@ class App extends Component {
   
   this.state={
     items: [],
-
-
+    openModal : false
   }
 
 }
@@ -28,6 +28,16 @@ componentDidMount(){
     
 }
 
+onClickButton = e =>{
+  e.preventDefault()
+  this.setState({openModal : true})
+}
+
+onCloseModal = ()=>{
+  this.setState({openModal : false})
+}
+
+
 render(){
   
   return(
@@ -37,8 +47,13 @@ render(){
       return(
         <div className='main' key={id}>
           <Card items={item} />  
-          <Pics items={item} />
-
+          <Pics items={item}  
+           onClick={this.onClickButton}
+          />
+          <p onClick={this.onClickButton}>Click Me</p>
+                <Modal open={this.state.openModal} onClose={this.onCloseModal}>
+                <Card items={item} />
+                </Modal>   
         </div>
           
           
