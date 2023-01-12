@@ -1,6 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+
 .frames-container {
-  text-align: center;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.dscrpt {
+.img-info{
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 16px;
+
+}
+.card-imgs{
+  border-radius: 20px;
+  height: 300px;
+  width: 300px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.card-imgs:hover{
+  box-shadow: 0px 0px 69px 20px rgba(128,0,32,0.67);
+
 }
