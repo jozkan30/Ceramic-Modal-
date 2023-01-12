@@ -1,22 +1,18 @@
 import { Component } from "react";
-import CardStyle from './CardStyle.css'
+import CardStyle from "./CardStyle.css";
 
-
-
-
-class Card extends Component{
-    render(){
-        const {items} = this.props
-        return(
-            <div className="card-info">
-            <p className='img-info'>{items.title}</p>
-            <p className='img-info'>{items.description}</p>
-            <p className='img-info'>{items.date}</p>
-            <p className='img-info'>{items.medium}</p>
-            </div>
-        )
-    }
+class Card extends Component {
+  render() {
+    const { item } = this.props;
+    return (
+      <div className="card-info">
+        <p className="img-info">{item.title}</p>
+        <p className="img-info">{item.description}</p>
+        <p className="img-info">{item.date}</p>
+        <p className="img-info">{item.medium}</p>
+      </div>
+    );
+  }
 }
 
-
-export default Card
+export default Card;

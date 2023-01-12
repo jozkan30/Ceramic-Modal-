@@ -1,74 +1,57 @@
-import { Component } from 'react';
-import './App.css';
-import Card from './components/Card';
-import Pics from './components/Pics';
-import { Modal } from 'react-responsive-modal';
-import 'react-responsive-modal/styles.css';
+import { Component } from "react";
+import "./App.css";
+import Card from "./components/Card";
+import Pics from "./components/Pics";
+import { Modal } from "react-responsive-modal";
+import "react-responsive-modal/styles.css";
 
 class App extends Component {
-
-  constructor(){
+  constructor() {
     super();
 
-  
-  this.state={
-    items: [],
-    openModal : false
+    this.state = {
+      items: [],
+      openModal: false,
+      item: {},
+    };
   }
 
+  componentDidMount() {
+    fetch(
+      "https://www.metmuseum.org/api/collection/collectionlisting?q=&pageSize=0&sortBy=Relevance&sortOrder=asc&searchField=Gallery&showOnly=withImage&material=Ceramics&geolocation=Florence&department=12"
+    )
+      .then((res) => res.json())
+      .then((data) =>
+        this.setState(() => {
+          return { items: data.results };
+        })
+      );
+  }
+
+  onClickButton = (e, itemInfo) => {
+    e.preventDefault();
+    this.setState({ openModal: true, item: itemInfo });
+  };
+
+  onCloseModal = () => {
+    this.setState({ openModal: false });
+  };
+
+  render() {
+    return (
+      <div className="frames-container">
+        {this.state.items.map((item, i) => {
+          return (
+            <div className="main" key={i}>
+              <Pics item={item} onClickButton={this.onClickButton} />
+            </div>
+          );
+        })}
+        <Modal open={this.state.openModal} onClose={this.onCloseModal}>
+          <Card item={this.state.item} />
+        </Modal>
+      </div>
+    );
+  }
 }
-
-componentDidMount(){
-  fetch('https://www.metmuseum.org/api/collection/collectionlisting?q=&pageSize=0&sortBy=Relevance&sortOrder=asc&searchField=Gallery&showOnly=withImage&material=Ceramics&geolocation=Florence&department=12')
-  .then(res=> res.json())
-  .then(data => 
-    this.setState(()=>{
-      return {items: data.results}
-    }))
-    
-}
-
-onClickButton = e =>{
-  e.preventDefault()
-  this.setState({openModal : true})
-}
-
-onCloseModal = ()=>{
-  this.setState({openModal : false})
-}
-
-
-render(){
-  
-  return(
-  <div className='frames-container' >
-    {this.state.items.map((item)=>{
-      const {id} = item;
-      return(
-        <div className='main' key={id}>
-          <Card items={item} />  
-          <Pics items={item}  
-           onClick={this.onClickButton}
-          />
-          <p onClick={this.onClickButton}>Click Me</p>
-                <Modal 
-                open={this.state.openModal} 
-                onClose={this.onCloseModal}
-                
-                >
-                <Card items={item} />
-                </Modal>   
-        </div>
-          
-          
-      )
-
-    })}
-
-
-  </div>
-  )
-
-}
-}
-export default App
+export default App;
