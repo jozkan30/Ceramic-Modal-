@@ -1,13 +1,10 @@
+
 body{
-background-color:#f0f0f0 ;
+background-color: rgb(255, 255, 255) ;
 }
 
-.main{
-
-}
-
-.react-responsive-modal-modal {
-    background-color: rgb(255, 238, 0);
-
-    
+.modal-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

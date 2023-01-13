@@ -18,7 +18,7 @@ class App extends Component {
 
   componentDidMount() {
     fetch(
-      "https://www.metmuseum.org/api/collection/collectionlisting?q=&pageSize=0&sortBy=Relevance&sortOrder=asc&searchField=Gallery&showOnly=withImage&material=Ceramics&geolocation=Florence&department=12"
+      "https://www.metmuseum.org/api/collection/collectionlisting?q=&pageSize=0&sortBy=Relevance&sortOrder=asc&geolocation=Japan&showOnly=withImage%7CopenAccess%7ConDisplay&material=Ceramics"
     )
       .then((res) => res.json())
       .then((data) =>
@@ -39,17 +39,23 @@ class App extends Component {
 
   render() {
     return (
-      <div className="frames-container">
-        {this.state.items.map((item, i) => {
-          return (
-            <div className="main" key={i}>
-              <Pics item={item} onClickButton={this.onClickButton} />
-            </div>
-          );
-        })}
-        <Modal open={this.state.openModal} onClose={this.onCloseModal}>
-          <Card item={this.state.item} />
-        </Modal>
+      <div>
+        
+
+        <div className="modal-container">
+          <div className="frames-container">
+            {this.state.items.map((item, i) => {
+              return (
+                <div className="main" key={i}>
+                  <Pics item={item} onClickButton={this.onClickButton} />
+                </div>
+              );
+            })}
+            <Modal open={this.state.openModal} onClose={this.onCloseModal}>
+              <Card item={this.state.item} />
+            </Modal>
+          </div>
+        </div>
       </div>
     );
   }
